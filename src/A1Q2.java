@@ -84,54 +84,59 @@ public class A1Q2 {  // begin class
     	fout.println("*******************************************");
  	    	
     // ************************ get input **********************
-    strin = fin.readLine();
+    strin = fin.readLine(); //priming statement
     
-    while (strin != null){
-        Line = strin.split(delim);
-        Len = Line.length;
+    while (strin != null){ //repeats untill string is null
+        Line = strin.split(delim); //splits the string by its deliminator
+        Len = Line.length;  //counts length of string
         
         for(int i = 0; i < Len; i++){ //for loop that reads in the random number array
-            Rn[counter] = Integer.parseInt(Line[i]); 
-            counter++;
+            Rn[counter] = Integer.parseInt(Line[i]);  //reads numbers into array
+            counter++; //adds one to the array counter
         }//end of random number read in for loop
-        strin = fin.readLine();
+        strin = fin.readLine(); //reads new line
     }//end of EoF while loop
     // ************************ processing ***************************
     
     
     for(int i = 0; i < rnMAX; i++){ //loop that checks fequency of numbers in rn array
     
-    Fr[Rn[i]-1]++;
+    Fr[Rn[i]-OFFSET1v0]++; //adds one to the frequency of number in array being indexed
     
     }//end of frequency for loop
     
     
     // ************************ print output ****************************
-
-     while (singleN != SENTINELVAL || !(multiN.equals(SENTINELSTRING))){
-         
+    //runs if sentinel values are not entered
+     while (singleN != SENTINELVAL || !(multiN.equals(SENTINELSTRING))){ 
+        
+         //asks for input
          singleN = Integer.parseInt(JOptionPane.showInputDialog
             ("Enter what number you would like to see the frequency for"
                     + "\nExample: 10"
                     + "\nIf You Would Like to Skip/End Type -1"));
+         //runs if sentinel value not entered
          if (singleN != -1){
-             
+             //prints frequency
              System.out.println("The Frequency of " + singleN + 
                      " is: " + Fr[singleN - OFFSET1v0]);
          }//end of single number if
          
+         //asks for range of input
          multiN = JOptionPane.showInputDialog
             ("Enter what range of numbers you would like to see the frequency for"
                     + "\nExample: 10-20"
                     + "\nIf You Would Like to Skip/End Type -1");
+         //runs if sentinel value isnt entered
          if (!(multiN.equals(SENTINELSTRING))){
-             tokens = multiN.split(delim);
-             n1 = Integer.parseInt(tokens[0]);
-             n2 = Integer.parseInt(tokens[1]);
-             for (int i = n1; i < n2; i++){
+             tokens = multiN.split(delim); //splits string
+             n1 = Integer.parseInt(tokens[0]);  //assigns first value
+             n2 = Integer.parseInt(tokens[1]); //assigns second value
+             for (int i = n1; i < n2; i++){ //prints frequency of each number in range
+                 //prints requencyy of indexed number
                  System.out.println("The Frequency of " + i + 
                      " is: " + Fr[i - OFFSET1v0]);
-             }
+             } //end of for loop
             
          }//end of multiple number if
      }//end of while loop
