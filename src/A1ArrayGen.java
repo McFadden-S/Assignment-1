@@ -72,7 +72,9 @@ public class A1ArrayGen {  // begin class
     
         for (int i = 0; i < MAX; i++){ //loop to assign values to array
             
-            Rn[i] = rand.nextInt(RANGE)+1;  //assignes a random value
+            //assignes a random value and adds one so it creates number
+            //between 1 and 100 not 0 to 99
+            Rn[i] = rand.nextInt(RANGE)+1;  
             
         }//end of assignment for loop
     
