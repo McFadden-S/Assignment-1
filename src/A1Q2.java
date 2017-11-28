@@ -132,7 +132,7 @@ public class A1Q2 {  // begin class
              tokens = multiN.split(delim); //splits string
              n1 = Integer.parseInt(tokens[0]);  //assigns first value
              n2 = Integer.parseInt(tokens[1]); //assigns second value
-             for (int i = n1; i < n2; i++){ //prints frequency of each number in range
+             for (int i = n1; i <= n2; i++){ //prints frequency of each number in range
                  //prints requencyy of indexed number
                  System.out.println("The Frequency of " + i + 
                      " is: " + Fr[i - OFFSET1v0]);
