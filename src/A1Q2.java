@@ -115,30 +115,46 @@ public class A1Q2 {  // begin class
             ("Enter what number you would like to see the frequency for"
                     + "\nExample: 10"
                     + "\nIf You Would Like to Skip/End Type -1"));
-         //runs if sentinel value not entered
+        //try catch to catch if user input out of bounds
+         try{ 
+        //runs if sentinel value not entered
          if (singleN != -1){
              //prints frequency
              System.out.println("The Frequency of " + singleN + 
                      " is: " + Fr[singleN - OFFSET1v0]);
          }//end of single number if
+        }//end of try
+        catch(ArrayIndexOutOfBoundsException e){ 
+            System.out.println("Please enter a number between 1 and 100");
+        }//end of catch
          
          //asks for range of input
          multiN = JOptionPane.showInputDialog
             ("Enter what range of numbers you would like to see the frequency for"
                     + "\nExample: 10-20"
-                    + "\nIf You Would Like to Skip/End Type -1");
-         //runs if sentinel value isnt entered
-         if (!(multiN.equals(SENTINELSTRING))){
+                    + "\nIf You Would Like to Skip/End Type -1"); 
+        
+           
+           //runs if sentinel value isnt entered
+            if (!(multiN.equals(SENTINELSTRING))){
              tokens = multiN.split(delim); //splits string
              n1 = Integer.parseInt(tokens[0]);  //assigns first value
              n2 = Integer.parseInt(tokens[1]); //assigns second value
              for (int i = n1; i <= n2; i++){ //prints frequency of each number in range
+                 //try catch to catch if user input out of bounds      
+                 try{
                  //prints requencyy of indexed number
                  System.out.println("The Frequency of " + i + 
                      " is: " + Fr[i - OFFSET1v0]);
-             } //end of for loop
-            
-         }//end of multiple number if
+                 }//end of try
+                 catch(ArrayIndexOutOfBoundsException e){
+                 System.out.println("Please enter a number between 1 and 100");
+                 break; //breaks for loop
+                 }//end of catch
+            } //end of for loop
+           }//end of multiple number if
+             
+        
      }//end of while loop
          
         // ******** closing message *********
